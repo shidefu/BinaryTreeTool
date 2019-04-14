@@ -16,9 +16,9 @@ public class BinaryTreeTool {
 	/**
 	 * Inner class: binary tree node
 	 * 
-	 * @property val: int, value of nodes
-	 * @property left: left child of the tree
-	 * @property right: right child of the tree
+	 * @property val: int, value of the node
+	 * @property left: left child of the node
+	 * @property right: right child of the node
 	 */
 	public static class TreeNode {
 		int val;
