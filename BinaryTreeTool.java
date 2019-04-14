@@ -18,29 +18,29 @@ public class BinaryTreeTool {
 	 * 
 	 * @property val: int, value of node
 	 * @property left: left child of the tree
-	 * @property right: right chila of the tree
+	 * @property right: right child of the tree
 	 */
-	    int val;
-	    TreeNode left = null;
-	    TreeNode right = null;
+		int val;
+		TreeNode left = null;
+		TreeNode right = null;
 	    
-	    TreeNode(int val) {
-	        this.val = val;
-	    }
+		TreeNode(int val) {
+			this.val = val;
+		}
 	}
-
-    public static void main(String[] args) {
-    /**
-     * main function
-     * 
-     *@param n: number of nodes
-     *@param a: edges of the tree, (a[i][0], a[i][1]) means form a[i][1] to a[i][0]，
-     *left is in front of the right.
-     *@param root: root of the tree
-     *@return void
-     */
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
+	
+	public static void main(String[] args) {
+	/**
+         * main function
+         * 
+         * @param n: number of nodes
+         * @param a: edges of the tree, (a[i][0], a[i][1]) means form a[i][1] to a[i][0]，
+         * left is in front of the right.
+         * @param root: root of the tree
+         * @return void
+         */
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
 		int[][] a = new int[n-1][2];
 		for(int i=0; i<n-1; i++) {
 			a[i][0] = in.nextInt();
@@ -50,68 +50,68 @@ public class BinaryTreeTool {
 		TreeNode root = edgesToTree(a);
 		
 		System.out.println("TreeView: " + print(root));		
-        System.out.println("maxDepth: " + maxDepth(root));
+		System.out.println("maxDepth: " + maxDepth(root));
         
-        System.out.println("preOrder: " + preOrderRecur(root));
-        System.out.println("inOrder: " + inOrderRecur(root));
-        System.out.println("postOrder: " + postOrderRecur(root));
-
-        System.out.println("BFS: " + levelTraverse(root));
-        System.out.println("DFS: "+ depthFirst(root));
-        System.out.println("isBalanced? " + isBalanced(root));
-        System.out.println("isBST? " + isBST(root));
-        System.out.println("isComplete? " + isComplete(root));
-        System.out.println("isFull? " + isFull(root));
-        
-    }
+		System.out.println("preOrder: " + preOrderRecur(root));
+		System.out.println("inOrder: " + inOrderRecur(root));
+		System.out.println("postOrder: " + postOrderRecur(root));
+		System.out.println("BFS: " + levelTraverse(root));
+		System.out.println("DFS: "+ depthFirst(root));
+		
+		System.out.println("isBalanced? " + isBalanced(root));
+		System.out.println("isBST? " + isBST(root));
+		System.out.println("isComplete? " + isComplete(root));
+		System.out.println("isFull? " + isFull(root));
+		
+	}
     
-    public static TreeNode edgesToTree(int[][] a) {    
-    /**
-     * rebuild binary tree by edges.
-     * 
-     *@param map: <Integer, TreeNode>, map from value to node
-     *@param set: <Integer>, node value
-     *@return TreeNode: root
-     */
-        HashMap<Integer, TreeNode> map = new HashMap<>();
-        HashSet<Integer> set = new HashSet<>();
-        for (int i = 0; i < a.length; i++) {
-            if (!set.contains(a[i][1])) {
-                set.add(a[i][1]);
-                TreeNode n1 = new TreeNode(a[i][1]);
-                map.put(a[i][1], n1);
-            }
-            if (!set.contains(a[i][0])) {
-                set.add(a[i][0]);
-                TreeNode n2 = new TreeNode(a[i][0]);
-                map.put(a[i][0], n2);
-            }
-            if (map.get(a[i][1]).left != null) {
-                map.get(a[i][1]).right = map.get(a[i][0]);
-            } else {
-                map.get(a[i][1]).left = map.get(a[i][0]);
-            }
-        }
-        for(Integer integer : set) {
-        	int j = 0;
-        	while(j < a.length) {
-        		if(integer == a[j][0])
-        			break;
-        		j++;
-        	}
-        	if(j == a.length)
-        		return map.get(integer);
-        }
-        return null;
-    }
+	public static TreeNode edgesToTree(int[][] a) {    
+        /**
+         * rebuild binary tree by edges.
+         * 
+         * @param map: <Integer, TreeNode>, map from value to node
+         * @param set: <Integer>, node value
+         * @return TreeNode: root
+         */
+		HashMap<Integer, TreeNode> map = new HashMap<>();
+		HashSet<Integer> set = new HashSet<>();
+		for (int i = 0; i < a.length; i++) {
+			if (!set.contains(a[i][1])) {
+				set.add(a[i][1]);
+				TreeNode n1 = new TreeNode(a[i][1]);
+				map.put(a[i][1], n1);
+			}
+			if (!set.contains(a[i][0])) {
+				set.add(a[i][0]);
+				TreeNode n2 = new TreeNode(a[i][0]);
+				map.put(a[i][0], n2);
+			}
+			if (map.get(a[i][1]).left != null) {
+				map.get(a[i][1]).right = map.get(a[i][0]);
+			} else {
+				map.get(a[i][1]).left = map.get(a[i][0]);
+			}
+		}
+		for(Integer integer : set) {
+			int j = 0;
+			while(j < a.length) {
+				if(integer == a[j][0])
+					break;
+				j++;
+			}
+			if(j == a.length)
+				return map.get(integer);
+		}
+		return null;
+	}
     
 	public static ArrayList<ArrayList<Integer> > print(TreeNode root){
 	/**
 	 * print the tree by level.
 	 * 
-	 *@param list: ArrayList<ArrayList<Integer>>
-	 *@param depth: depth of current node
-     *@return list: ArrayList<ArrayList<Integer>>
+	 * @param list: ArrayList<ArrayList<Integer>>
+	 * @param depth: depth of current node
+         * @return list: ArrayList<ArrayList<Integer>>
 	 */
 		ArrayList<ArrayList<Integer>> list = new ArrayList<>();
 		printCore(root, 1, list);
@@ -127,19 +127,19 @@ public class BinaryTreeTool {
 		printCore(root.right, depth + 1, list);
 	}
 
-    public static int maxDepth(TreeNode root) {
-    /**
-     * find the max depth of three tree.
-     * 
-     * @return maxDepth: int
-     */
-        if (root == null) {
-            return 0;
-        }
-        int left = maxDepth(root.left);
-        int right = maxDepth(root.right);
-        return Math.max(left, right) + 1;
-    }
+	public static int maxDepth(TreeNode root) {
+        /**
+         * find the max depth of three tree.
+         * 
+         * @return maxDepth: int
+         */
+		if (root == null) {
+			return 0;
+		}
+		int left = maxDepth(root.left);
+		int right = maxDepth(root.right);
+		return Math.max(left, right) + 1;
+	}
     
 	public static ArrayList<Integer> preOrderRecur(TreeNode root) {
 	/**
@@ -302,23 +302,23 @@ public class BinaryTreeTool {
 	 * @return list: ArrayList<Integer>
 	 */
 		ArrayList<Integer> list = new ArrayList<>();
-        if (root == null) {  
-            return list;  
-        }  
-        Queue<TreeNode> queue = new LinkedList<>();  
-        queue.offer(root);  
-        while (!queue.isEmpty()) {  
-            TreeNode node = queue.poll();  
-            list.add(node.val);
-            if (node.left != null) {  
-                queue.offer(node.left);  
-            }  
-            if (node.right != null) {  
-                queue.offer(node.right);  
-            }  
-        }  
-        return list;
-    }  
+		if (root == null) {  
+			return list;
+		}
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.offer(root);
+		while (!queue.isEmpty()) {
+			TreeNode node = queue.poll();
+			list.add(node.val);
+			if (node.left != null) {
+				queue.offer(node.left);
+			}
+			if (node.right != null) {
+				queue.offer(node.right);
+			}
+		}
+		return list;
+	}  
 	
 	public static ArrayList<Integer> depthFirst(TreeNode root) {
 	/** print the depth-first-order traversal by stack, adapting preorder traversal.
@@ -398,12 +398,12 @@ public class BinaryTreeTool {
 	    }
 	
 	public static boolean isComplete(TreeNode root) {
-    /** judge whether the tree is a complete binary tree.
-     * 
-     * @param queue: Queue<Stack>
-     * @param left: boolean, whether left child tree is complete.
-     * @return boolean
-     */
+        /** judge whether the tree is a complete binary tree.
+         * 
+         * @param queue: Queue<Stack>
+         * @param left: boolean, whether left child tree is complete.
+         * @return boolean
+         */
 		if(root == null) {
 			return false;
 		}
@@ -411,13 +411,13 @@ public class BinaryTreeTool {
 		TreeNode rightChild = null;
 		boolean left = false;
 		Queue<TreeNode> queue = new LinkedList<>();
-	    queue.offer(root);  
-	    while (!queue.isEmpty()) {   
-	        TreeNode head = queue.poll();
+	        queue.offer(root);  
+	        while (!queue.isEmpty()) {
+			TreeNode head = queue.poll();
 			leftChild = head.left;
 			rightChild = head.right;
 			if((rightChild != null && leftChild == null) ||
-				(left && (rightChild != null ||leftChild != null))) {
+			   (left && (rightChild != null ||leftChild != null))) {
 				return false;
 			}
 			if(leftChild != null) {
@@ -428,8 +428,8 @@ public class BinaryTreeTool {
 			}else {
 				left = true; 
 			}
-	    }  
-	    return true;  
+		}
+		return true;  
 	}  
 	
 	public static boolean isFull(TreeNode root) {
