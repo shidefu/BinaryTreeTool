@@ -1,13 +1,15 @@
 import java.util.*;
 
 /**
- * FileName: BinaryTreeTool.java Binary tree tool: by edges input, get TreeView,
- * maxDepth, preOrder, inOrder, postOrder, BFS and DFS, and judge whether it is
- * a balanced tree, BST, complete tree, and full tree.
+ * FileName: BinaryTreeTool.java
+ * 
+ * Binary tree tool: By edges input, get TreeView, maxDepth, preOrder, inOrder,
+ * postOrder, BFS and DFS, and judge whether it is a balanced tree, BST,
+ * complete tree, and full tree.
  * 
  * @author Defu Shi, Xing Zheng, and Jun Qu
  * @Time 2019-4-14 10:26
- *
+ * 
  */
 public class BinaryTreeTool {
 
