@@ -241,7 +241,8 @@ public class BinaryTreeTool {
 	}
 	
 	public static ArrayList<Integer> postOrderUnRecur1(TreeNode root) {
-	/** print the postorder traversal by two stacks.
+	/** 
+	 * print the postorder traversal by two stacks.
 	 * 
 	 * @param s1: Stack<TreeNode>
 	 * @param s2: Stack<TreeNode>
@@ -270,7 +271,8 @@ public class BinaryTreeTool {
 	}
 
 	public static ArrayList<Integer> postOrderUnRecur2(TreeNode root) {
-	/** print the postorder traversal by one stack.
+	/**
+	 * print the postorder traversal by one stack.
 	 * 
 	 * @param stack: Stack<TreeNode>
 	 * @return list: ArrayList<Integer>
@@ -296,7 +298,8 @@ public class BinaryTreeTool {
 	}
 	
 	public static ArrayList<Integer> levelTraverse(TreeNode root) { 
-	/** print the level-order traversal by queue.
+	/** 
+	 * print the level-order traversal by queue.
 	 * 
 	 * @param queue: Queue<TreeNode>
 	 * @return list: ArrayList<Integer>
@@ -321,7 +324,8 @@ public class BinaryTreeTool {
 	}  
 	
 	public static ArrayList<Integer> depthFirst(TreeNode root) {
-	/** print the depth-first-order traversal by stack, adapting preorder traversal.
+	/**
+	 * print the depth-first-order traversal by stack, adapting preorder traversal.
 	 * 
 	 * @param stack: Stack<TreeNode>
 	 * @return list: ArrayList<Integer>
@@ -345,7 +349,8 @@ public class BinaryTreeTool {
 	}
 
 	public static boolean isBalanced(TreeNode root) {
-	/** judge whether the tree is a balanced binary tree by pruning.
+	/** 
+	 * judge whether the tree is a balanced binary tree by pruning.
 	 * 
 	 * @return boolean
 	 */
@@ -368,7 +373,8 @@ public class BinaryTreeTool {
 	}
 	
 	public static boolean isBST(TreeNode root) {
-	/** judge whether the tree is a binary sorted tree.
+	/** 
+	 * judge whether the tree is a binary sorted tree.
 	 * 
 	 * @param stack: Stack<TreeNode>
 	 * @param cur: current node
@@ -398,7 +404,8 @@ public class BinaryTreeTool {
 	    }
 	
 	public static boolean isComplete(TreeNode root) {
-        /** judge whether the tree is a complete binary tree.
+        /** 
+	 * judge whether the tree is a complete binary tree.
          * 
          * @param queue: Queue<Stack>
          * @param left: boolean, whether left child tree is complete.
@@ -433,7 +440,8 @@ public class BinaryTreeTool {
 	}  
 	
 	public static boolean isFull(TreeNode root) {
-	/** judge whether the tree is a full binary tree.
+	/** 
+	 * judge whether the tree is a full binary tree.
 	 * 
 	 * @return boolean
 	 */
