@@ -276,6 +276,7 @@ public class BinaryTreeTool {
 	 * Print the postorder traversal by one stack.
 	 * 
 	 * @param stack: save and get nodes
+	 * @param node: stack top pointer
 	 * @return list: ArrayList<Integer>
 	 */
 	public static ArrayList<Integer> postOrderUnRecur2(TreeNode root) {
